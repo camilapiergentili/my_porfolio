@@ -1,0 +1,145 @@
+/* =========================
+   HERO SECTION
+========================= */
+.hero-section {
+  padding: 80px 40px;
+}
+
+.hero-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 8px 8px 8px 8px rgba(180, 180, 180, 0.57);
+  border-radius: 32px;
+}
+
+/* =========================
+   HERO CARD
+========================= */
+.hero-card {
+  position: relative;
+  min-height: 350px;
+  border-radius: 32px;
+  overflow: hidden;
+
+  display: flex;          
+  align-items: stretch;
+
+  background-image:
+    linear-gradient(
+      to bottom left,
+      rgba(242, 227, 129, 0.4),
+      rgba(180, 180, 180, 0.4)
+    ),
+    url("../../assets/portada.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================
+   IMAGE
+========================= */
+.hero-image {
+  flex: 1;
+  border-radius: 24px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+.hero-content {
+  z-index: 2;
+  flex: 1;                 
+  padding: 42px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  align-items: center;
+  text-align: center;
+
+  color: white;
+}
+
+.hero-content p {
+  font-size: 22px;
+  opacity: 0.9;
+  margin-bottom: 32px;
+  color: #92400e;
+  font-weight: 500;
+}
+
+.hero-content h1 {
+    font-size: 58px;
+    font-family: 'Cormorant Infant', serif;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+
+
+/* =========================
+   ACTIONS
+========================= */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.btn {
+  backdrop-filter: blur(6px);
+  border: 2px solid rgba(180, 180, 180, 0.4);
+
+}
+
+
+.btn-dark {
+  background: linear-gradient(
+    135deg,
+    rgba(247, 229, 116, 0.35),
+    rgba(197, 193, 193, 0.1)
+  );
+
+  backdrop-filter: blur(50px);
+}
+
+.btn-yellow {
+    background: linear-gradient(
+        135deg,
+        rgba(247, 229, 116, 0.35),
+        rgba(197, 193, 193, 0.1)
+    );
+  backdrop-filter: blur(50px);
+}
+
+.btn:hover {
+  box-shadow: 0 8px 16px rgba(18, 17, 17, 0.548);
+  transform: translateY(-1.5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .hero-card {
+    flex-direction: column;
+  }
+
+  .hero-image {
+    min-height: 240px;
+  }
+  
+  .hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+}
