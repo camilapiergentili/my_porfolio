@@ -15,12 +15,7 @@ body {
 
 .min-h-screen {
   min-height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    rgba(245, 227, 112, 0.499),
-    rgba(117, 115, 115, 0.4)
-
-  );
+  background: linear-gradient(var(--azul-marino), var(--yellow));
   background-attachment: fixed;
 }
 
@@ -28,15 +23,16 @@ body {
 :root {
   --bg-main: #ede0d4;
   --bg-soft: #e6ccb2;
-  --text-main: #ddb892;
+  --text-main: rgba(14, 14, 14, 0.948);
   --text-muted: #b0896b;
   --accent: #7f5539;
   --accent-hover: #9c6644;
   --nude: #F7D9BC;
-  --background: #8897aa;
-  --yellow: #FEF3C7;
-  --pastel-yellow: rgba(242, 227, 129, 0.4);
+  --celeste: #7694bb;
+  --yellow: rgb(253, 253, 150);
+  --pastel-yellow: rgba(242, 227, 129, 0.764);
   --grey-nude: rgba(180, 180, 180, 0.4);
+  --azul-marino: #00357a;
 }
 
 html {
@@ -53,12 +49,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: var(--azul-marino);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-hover);
+  background: var(--azul-marino);
 }
 
 .btn {
@@ -67,7 +63,6 @@ html {
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
-  color: #92400e;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +75,7 @@ html {
 
 
 /* Selección */
-::selection {
+/* ::selection {
   background: var(--accent);
   color: #fff;
-}
+} */

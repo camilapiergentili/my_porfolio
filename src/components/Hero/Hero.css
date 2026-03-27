@@ -2,13 +2,13 @@
    HERO SECTION
 ========================= */
 .hero-section {
-  padding: 80px 40px;
+  padding: 120px 0 0 0;
 }
 
 .hero-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  box-shadow: 8px 8px 8px 8px rgba(180, 180, 180, 0.57);
+  box-shadow: 8px 8px 12px 0px #00597a2b;
   border-radius: 32px;
 }
 
@@ -63,14 +63,14 @@
   align-items: center;
   text-align: center;
 
-  color: white;
+  color: whitesmoke;
 }
 
 .hero-content p {
   font-size: 22px;
   opacity: 0.9;
   margin-bottom: 32px;
-  color: #92400e;
+  color: var(--azul-marino);
   font-weight: 500;
 }
 
@@ -96,7 +96,7 @@
 .btn {
   backdrop-filter: blur(6px);
   border: 2px solid rgba(180, 180, 180, 0.4);
-
+  color: var(--text-main);
 }
 
 
@@ -120,9 +120,9 @@
 }
 
 .btn:hover {
-  box-shadow: 0 8px 16px rgba(18, 17, 17, 0.548);
+  box-shadow: 0 8px 16px #00597a2b;
   transform: translateY(-1.5px);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(253, 253, 150, 0.54) ;
 }
 
 

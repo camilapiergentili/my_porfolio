@@ -1,5 +1,6 @@
 import { Github, Linkedin } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import logo from "../../assets/LOGO.png"
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -25,13 +26,23 @@ export default function Navigation() {
       : 'rgba(253, 253, 150, 0.95)'
     }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-end items-center">
+      <div className="max-w-6xl mx-auto px-6 py-1 flex justify-between items-center overflow-hidden">
+        
+        {/* Logo izquierda */}
+        <div className="flex items-center flex-shrink-0">
+          <img 
+          src={logo} 
+          alt="logo camila" 
+          className="h-20 w-20 object-contain flex-shrink-0"
+          />
+        </div>
+
         <div className="flex gap-4">
           <a
             href="https://github.com/camilapiergentili"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-stone-600 hover:text-amber-700 hover:scale-110 transition-all duration-300"
+            className="text-[var(--celeste)] hover:text-[var(--azul-marino)] hover:scale-110 transition-all duration-300"
           >
             <Github size={24} />
           </a>
@@ -40,7 +51,7 @@ export default function Navigation() {
             href="https://www.linkedin.com/in/camila-piergentili/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-stone-600 hover:text-amber-700 hover:scale-110 transition-all duration-300"
+            className="text-[var(--celeste)] hover:text-[var(--azul-marino)] hover:scale-110 transition-all duration-300"
           >
             <Linkedin size={24} />
           </a>

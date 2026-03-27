@@ -16,7 +16,7 @@ export default function Hero() {
 
             <div className="hero-actions">
               <a
-              href="/CV-Piergentili-Camila-Developer.pdf"
+              href="/CV_PIERGENTILI_CAMILA.pdf"
               download
               className="btn btn-dark">
                 Descargar CV

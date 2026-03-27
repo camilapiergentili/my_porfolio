@@ -4,7 +4,14 @@ export default function Skills() {
   return (
     <section className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-amber-800 to-orange-700 bg-clip-text text-transparent mb-12 text-center">
+        
+        <h2
+        className="text-4xl font-bold bg-clip-text text-transparent mb-8 text-center"
+        
+        style={{ 
+          fontFamily: "Georgia, serif",
+          backgroundImage: "linear-gradient(to right, var(--azul-marino), var(--azul-marino))"
+        }}>
           Tech Stack
         </h2>
 
@@ -28,7 +35,7 @@ export default function Skills() {
             overflow-hidden"
             style={{ 
               borderColor: 'var(--yellow)',
-              boxShadow: '0 4px 12px rgba(242, 227, 129, 0.35)'
+              boxShadow: '3px 1px 8px 0px rgba(242, 227, 129, 0.39)'
             }}
             >
                 <div
@@ -41,7 +48,7 @@ export default function Skills() {
                 />
 
                 <div className="relative z-10">
-                  <Icon className="w-8 h-8 text-amber-700 mb-3" />
+                  <Icon className="w-8 h-8 mb-3" style={{ color: "var(--azul-marino)" }} />
                   <h3 className="font-semibold text-stone-800">
                     {skill.name}
                   </h3>

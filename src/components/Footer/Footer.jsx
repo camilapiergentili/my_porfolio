@@ -6,8 +6,7 @@ export default function Footer() {
         background: `
           linear-gradient(
             to right,
-            rgba(180, 180, 180, 0.4),
-            #8897aa
+            #00357add
           )
         `
       }}
