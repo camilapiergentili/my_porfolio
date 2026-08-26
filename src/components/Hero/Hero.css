@@ -2,144 +2,165 @@
    HERO SECTION
 ========================= */
 .hero-section {
-  padding: 120px 0 0 0;
+  padding: 150px 24px 100px;
 }
 
 .hero-wrapper {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  box-shadow: 8px 8px 12px 0px #00597a2b;
-  border-radius: 32px;
 }
 
 /* =========================
-   HERO CARD
+   VENTANA DE EDITOR
+   Elemento firma: el hero se presenta como un editor de código,
+   con su barra de "traffic lights" y una pestaña de archivo.
 ========================= */
-.hero-card {
-  position: relative;
-  min-height: 350px;
-  border-radius: 32px;
+.hero-window {
+  border-radius: 22px;
+  border: 1px solid var(--card-border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45);
   overflow: hidden;
-
-  display: flex;          
-  align-items: stretch;
-
-  background-image:
-    linear-gradient(
-      to bottom left,
-      rgba(242, 227, 129, 0.4),
-      rgba(180, 180, 180, 0.4)
-    ),
-    url("../../assets/portada.jpg");
-
-  background-size: cover;
-  background-position: center;
 }
 
-/* =========================
-   IMAGE
-========================= */
-.hero-image {
-  flex: 1;
-  border-radius: 24px;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.hero-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid var(--card-border);
 }
 
+.hero-window-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
 
-/* =========================
-   CONTENT
-========================= */
+.hero-window-tab {
+  margin-left: 14px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
 .hero-content {
-  z-index: 2;
-  flex: 1;                 
-  padding: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+  padding: 56px 56px;
+}
 
+/* =========================
+   TEXTO
+========================= */
+.hero-text {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; 
-  align-items: center;
-  text-align: center;
-
-  color: whitesmoke;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 540px;
 }
 
-.hero-content p {
-  font-size: 22px;
-  opacity: 0.9;
-  margin-bottom: 32px;
-  color: var(--azul-marino);
+.hero-title {
+  margin: 0;
+  font-size: 60px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--white);
+}
+
+.hero-role {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.hero-description {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
   font-weight: 500;
 }
 
-.hero-content h1 {
-    font-size: 58px;
-    font-family: 'Cormorant Infant', serif;
-    font-style: italic;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-
-
 /* =========================
-   ACTIONS
+   ACCIONES
 ========================= */
 .hero-actions {
   display: flex;
-  gap: 16px;
-  margin-top: 14px;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+  flex-wrap: wrap;
 }
 
-.btn {
-  backdrop-filter: blur(6px);
-  border: 2px solid rgba(180, 180, 180, 0.4);
-  color: var(--text-main);
+/* =========================
+   FOTO
+========================= */
+.hero-photo {
+  position: relative;
+  flex-shrink: 0;
+  width: 340px;
+  height: 420px;
 }
 
-
-.btn-dark {
-  background: linear-gradient(
-    135deg,
-    rgba(247, 229, 116, 0.35),
-    rgba(197, 193, 193, 0.1)
-  );
-
-  backdrop-filter: blur(50px);
+.hero-photo::before {
+  content: '';
+  position: absolute;
+  inset: -22px;
+  background: radial-gradient(circle, var(--yellow-dim) 0%, transparent 70%);
+  filter: blur(6px);
+  z-index: 0;
 }
 
-.btn-yellow {
-    background: linear-gradient(
-        135deg,
-        rgba(247, 229, 116, 0.35),
-        rgba(197, 193, 193, 0.1)
-    );
-  backdrop-filter: blur(50px);
+.hero-photo img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.btn:hover {
-  box-shadow: 0 8px 16px #00597a2b;
-  transform: translateY(-1.5px);
-  background: rgba(253, 253, 150, 0.54) ;
-}
-
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 900px) {
-  .hero-card {
-    flex-direction: column;
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 28px;
+    gap: 40px;
   }
 
-  .hero-image {
-    min-height: 240px;
+  .hero-text {
+    align-items: center;
+    max-width: 100%;
   }
-  
-  .hero-content h1 {
-    font-size: 48px;
-    margin-bottom: 16px;
+
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .hero-photo {
+    width: 100%;
+    max-width: 300px;
+    height: 360px;
+  }
+
+  .hero-actions {
+    justify-content: center;
   }
 }

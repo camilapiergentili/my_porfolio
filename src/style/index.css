@@ -11,28 +11,32 @@
 
 body {
   min-height: 100vh;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
-.min-h-screen {
+.page-background {
   min-height: 100vh;
-  background: linear-gradient(var(--azul-marino), var(--yellow));
-  background-attachment: fixed;
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 26px 26px,
+    linear-gradient(160deg, var(--navy-a) 0%, var(--navy-b) 55%, #0a1730 100%);
+  background-attachment: fixed, fixed;
 }
 
 
 :root {
-  --bg-main: #ede0d4;
-  --bg-soft: #e6ccb2;
-  --text-main: rgba(14, 14, 14, 0.948);
-  --text-muted: #b0896b;
-  --accent: #7f5539;
-  --accent-hover: #9c6644;
-  --nude: #F7D9BC;
-  --celeste: #7694bb;
-  --yellow: rgb(253, 253, 150);
-  --pastel-yellow: rgba(242, 227, 129, 0.764);
-  --grey-nude: rgba(180, 180, 180, 0.4);
-  --azul-marino: #00357a;
+  --navy-a: #04122c;
+  --navy-b: #101b2e;
+  --navy-text: #071227;
+  --yellow: #fdfd96;
+  --yellow-dim: rgba(253, 253, 150, 0.35);
+  --white: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.72);
+  --card-bg: rgba(255, 255, 255, 0.045);
+  --card-bg-hover: rgba(255, 255, 255, 0.07);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-border-hover: rgba(253, 253, 150, 0.5);
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --font-serif: 'Cormorant Infant', serif;
 }
 
 html {
@@ -49,30 +53,142 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--azul-marino);
+  background: var(--yellow);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--azul-marino);
+  background: var(--yellow);
 }
 
-.btn {
-  padding: 14px 32px;
-  border-radius: 999px;
-  font-size: 16px;
+/* =========================
+   TIPOGRAFÍA COMPARTIDA
+   El acento "// comentario" en monoespaciada marca cada sección
+   como si fuera un bloque de código — guiño directo al trabajo
+   backend de Camila.
+========================= */
+.eyebrow-code {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
   font-weight: 500;
-  text-decoration: none;
+  letter-spacing: 0.02em;
+  color: var(--yellow);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  display: block;
+  margin: 0 0 44px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  color: var(--white);
+}
+
+/* Tarjeta base reutilizada en About / Skills / Projects */
+.surface-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.surface-card:hover {
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+}
+
+/* Botón píldora con casquete circular — usado en Hero y Contact */
+.btn-pill {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-
-  transition:
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
+  height: 54px;
+  padding: 0 68px 0 26px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
 }
 
+.btn-pill:hover {
+  transform: translateY(-2px);
+}
 
+.btn-pill-primary {
+  border: 2px solid var(--yellow);
+}
+
+.btn-pill-primary:hover {
+  box-shadow: 0 10px 30px var(--yellow-dim);
+}
+
+.btn-pill-secondary {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-pill-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-pill-cap {
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.btn-pill:hover .btn-pill-cap {
+  transform: rotate(28deg);
+}
+
+.btn-pill-cap-primary {
+  background: var(--yellow);
+  color: var(--navy-text);
+}
+
+.btn-pill-cap-secondary {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+}
+
+/* Revelado suave al hacer scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn-pill,
+  .btn-pill-cap,
+  .surface-card {
+    transition: none;
+  }
+}
 
 /* Selección */
 /* ::selection {

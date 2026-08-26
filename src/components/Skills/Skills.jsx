@@ -1,58 +1,30 @@
 import skills from '../../data/skills'
+import useReveal from '../../hooks/useReveal'
 
 export default function Skills() {
-  return (
-    <section className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        
-        <h2
-        className="text-4xl font-bold bg-clip-text text-transparent mb-8 text-center"
-        
-        style={{ 
-          fontFamily: "Georgia, serif",
-          backgroundImage: "linear-gradient(to right, var(--azul-marino), var(--azul-marino))"
-        }}>
-          Tech Stack
-        </h2>
+  const [ref, isVisible] = useReveal()
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+  return (
+    <section id="skills" className="py-24 px-6">
+      <div className="max-w-6xl mx-auto text-center">
+        <p className="eyebrow-code">// stack</p>
+        <h2 className="section-title">Tech Stack</h2>
+
+        <div
+          ref={ref}
+          className={`grid grid-cols-2 md:grid-cols-4 gap-6 reveal ${isVisible ? 'is-visible' : ''} text-left`}
+        >
           {skills.map((skill) => {
             const Icon = skill.icon
             return (
-            <div
-            key={skill.name}
-            className="group relative 
-            bg-transparent 
-            backdrop-blur-sm 
-            p-6 
-            rounded-xl 
-            shadow-md 
-            hover:shadow-2xl 
-            transition-all 
-            duration-500 
-            hover:-translate-y-2 
-            border 
-            overflow-hidden"
-            style={{ 
-              borderColor: 'var(--yellow)',
-              boxShadow: '3px 1px 8px 0px rgba(242, 227, 129, 0.39)'
-            }}
-            >
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
-                  style={{
-                    backgroundImage: `url(${skill.bgImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                />
-
-                <div className="relative z-10">
-                  <Icon className="w-8 h-8 mb-3" style={{ color: "var(--azul-marino)" }} />
-                  <h3 className="font-semibold text-stone-800">
-                    {skill.name}
-                  </h3>
-                </div>
+              <div
+                key={skill.name}
+                className="surface-card p-6 transition-transform duration-300 hover:-translate-y-1"
+              >
+                <Icon className="w-7 h-7 mb-3" style={{ color: "var(--yellow)" }} />
+                <h3 className="font-semibold" style={{ color: "var(--white)" }}>
+                  {skill.name}
+                </h3>
               </div>
             )
           })}
