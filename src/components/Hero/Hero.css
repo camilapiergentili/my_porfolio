@@ -2,7 +2,7 @@
    HERO SECTION
 ========================= */
 .hero-section {
-  padding: 150px 24px 100px;
+  padding: 130px 24px 60px;
 }
 
 .hero-wrapper {
@@ -11,59 +11,45 @@
 }
 
 /* =========================
-   VENTANA DE EDITOR
-   Elemento firma: el hero se presenta como un editor de código,
-   con su barra de "traffic lights" y una pestaña de archivo.
+   VENTANA — card con la foto de portada de fondo
 ========================= */
 .hero-window {
   border-radius: 22px;
   border: 1px solid var(--card-border);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45);
   overflow: hidden;
 }
 
-.hero-window-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 20px;
-  background: rgba(0, 0, 0, 0.18);
-  border-bottom: 1px solid var(--card-border);
-}
-
-.hero-window-dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.hero-window-tab {
-  margin-left: 14px;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  color: var(--text-muted);
-}
-
-.hero-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 56px;
-  padding: 56px 56px;
-}
-
 /* =========================
-   TEXTO
+   CUERPO — foto de portada como fondo
+   (misma idea que el portfolio original: la compu + el café
+   detrás del texto). Velo claro, no navy oscuro, para que la
+   foto se siga viendo — el texto se lee por el text-shadow.
 ========================= */
+.hero-body {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  padding: 56px;
+  background:
+    linear-gradient(100deg, rgba(4, 18, 44, 0.4) 0%, rgba(4, 18, 44, 0.16) 45%, rgba(253, 253, 150, 0.1) 100%),
+    url('../../assets/portada.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-text h1,
+.hero-text p {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+}
+
 .hero-text {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-  max-width: 540px;
+  max-width: 560px;
 }
 
 .hero-title {
@@ -105,44 +91,12 @@
 }
 
 /* =========================
-   FOTO
-========================= */
-.hero-photo {
-  position: relative;
-  flex-shrink: 0;
-  width: 340px;
-  height: 420px;
-}
-
-.hero-photo::before {
-  content: '';
-  position: absolute;
-  inset: -22px;
-  background: radial-gradient(circle, var(--yellow-dim) 0%, transparent 70%);
-  filter: blur(6px);
-  z-index: 0;
-}
-
-.hero-photo img {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 900px) {
-  .hero-content {
-    flex-direction: column-reverse;
+  .hero-body {
+    padding: 44px 28px;
     text-align: center;
-    padding: 40px 28px;
-    gap: 40px;
   }
 
   .hero-text {
@@ -152,12 +106,6 @@
 
   .hero-title {
     font-size: 40px;
-  }
-
-  .hero-photo {
-    width: 100%;
-    max-width: 300px;
-    height: 360px;
   }
 
   .hero-actions {

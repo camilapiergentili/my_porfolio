@@ -63,20 +63,7 @@ html {
 
 /* =========================
    TIPOGRAFÍA COMPARTIDA
-   El acento "// comentario" en monoespaciada marca cada sección
-   como si fuera un bloque de código — guiño directo al trabajo
-   backend de Camila.
 ========================= */
-.eyebrow-code {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--yellow);
-  margin-bottom: 14px;
-}
-
 .section-title {
   display: block;
   margin: 0 0 44px;

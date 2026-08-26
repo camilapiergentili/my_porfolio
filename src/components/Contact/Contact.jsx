@@ -5,9 +5,8 @@ export default function Contact() {
   const [ref, isVisible] = useReveal()
 
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-14 px-6">
       <div className="max-w-3xl mx-auto text-center">
-        <p className="eyebrow-code">// contacto</p>
         <h2 className="section-title" style={{ marginBottom: '18px' }}>Conectemos</h2>
 
         <p className="text-lg mb-10" style={{ color: "var(--text-muted)" }}>

@@ -5,9 +5,8 @@ export default function Skills() {
   const [ref, isVisible] = useReveal()
 
   return (
-    <section id="skills" className="py-24 px-6">
+    <section id="skills" className="py-14 px-6">
       <div className="max-w-6xl mx-auto text-center">
-        <p className="eyebrow-code">// stack</p>
         <h2 className="section-title">Tech Stack</h2>
 
         <div

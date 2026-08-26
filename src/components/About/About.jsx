@@ -5,10 +5,9 @@ export default function About() {
   const [ref, isVisible] = useReveal()
 
   return (
-    <section id="about" className="py-24 px-6">
+    <section id="about" className="py-14 px-6">
       <div className="max-w-5xl mx-auto text-center">
-        <p className="eyebrow-code">// sobre-mí</p>
-        <h2 className="section-title">Quién soy</h2>
+        <h2 className="section-title">Sobre mí</h2>
 
         <div
           ref={ref}
@@ -33,7 +32,7 @@ export default function About() {
               <img
                 src={foto}
                 alt="Camila Piergentili"
-                className="w-48 h-48 rounded-full object-cover"
+                className="w-48 h-48 rounded-full object-cover object-top"
                 style={{
                   border: "3px solid var(--yellow)",
                   boxShadow: "0 20px 45px rgba(0, 0, 0, 0.35)"

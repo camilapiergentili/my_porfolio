@@ -31,7 +31,9 @@ function ProjectCard({ project }) {
       </p>
 
       <div className="mb-6">
-        <p className="eyebrow-code" style={{ marginBottom: '10px' }}>// tecnologías</p>
+        <h4 className="font-semibold mb-3" style={{ color: "var(--white)" }}>
+          Tecnologías:
+        </h4>
 
         <div className="flex flex-wrap gap-2">
           {project.tech.map((tech) => (
@@ -47,7 +49,9 @@ function ProjectCard({ project }) {
       </div>
 
       <div>
-        <p className="eyebrow-code" style={{ marginBottom: '10px' }}>// desafíos clave</p>
+        <h4 className="font-semibold mb-3" style={{ color: "var(--white)" }}>
+          Desafíos clave:
+        </h4>
 
         <ul className="space-y-2">
           {project.highlights.map((highlight, i) => (
@@ -67,10 +71,9 @@ function ProjectCard({ project }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6">
+    <section id="projects" className="py-14 px-6">
       <div className="max-w-5xl mx-auto text-center">
-        <p className="eyebrow-code">// proyectos</p>
-        <h2 className="section-title">Proyectos personales</h2>
+        <h2 className="section-title">Proyectos Personales</h2>
 
         <div className="text-left">
           {projects.map((project) => (
