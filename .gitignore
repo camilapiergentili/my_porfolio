@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Herramientas locales / cachés de skills, no forman parte del sitio
+.agents/
+skills-lock.json
+_to_delete/
