@@ -26,7 +26,7 @@ function ProjectCard({ project }) {
         </a>
       </div>
 
-      <p className="mb-6 leading-relaxed" style={{ color: "var(--text-muted)" }}>
+      <p className="mb-6 leading-relaxed text-justify" style={{ color: "var(--text-muted)" }}>
         {project.description}
       </p>
 
@@ -72,7 +72,7 @@ function ProjectCard({ project }) {
 export default function Projects() {
   return (
     <section id="projects" className="py-14 px-6">
-      <div className="max-w-5xl mx-auto text-center">
+      <div className="max-w-[1100px] mx-auto text-center">
         <h2 className="section-title">Proyectos Personales</h2>
 
         <div className="text-left">

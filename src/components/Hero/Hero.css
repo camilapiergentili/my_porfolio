@@ -22,9 +22,8 @@
 
 /* =========================
    CUERPO — foto de portada como fondo
-   (misma idea que el portfolio original: la compu + el café
-   detrás del texto). Velo claro, no navy oscuro, para que la
-   foto se siga viendo — el texto se lee por el text-shadow.
+   Degradé azul → amarillo (igual espíritu que la primera versión),
+   pero más suave para que la foto de la compu se siga viendo.
 ========================= */
 .hero-body {
   position: relative;
@@ -33,7 +32,7 @@
   align-items: center;
   padding: 56px;
   background:
-    linear-gradient(100deg, rgba(4, 18, 44, 0.4) 0%, rgba(4, 18, 44, 0.16) 45%, rgba(253, 253, 150, 0.1) 100%),
+    linear-gradient(125deg, rgba(4, 18, 44, 0.8) 0%, rgba(9, 32, 74, 0.32) 38%, rgba(253, 253, 150, 0.3) 68%, rgba(253, 253, 150, 0.55) 100%),
     url('../../assets/portada.jpg');
   background-size: cover;
   background-position: center;

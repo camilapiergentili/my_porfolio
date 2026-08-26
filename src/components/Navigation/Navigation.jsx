@@ -1,5 +1,4 @@
 import { Github, Linkedin } from 'lucide-react'
-import logo from "../../assets/LOGO.png"
 import useScrolled from "../../hooks/useScrolled"
 
 export default function Navigation() {
@@ -18,7 +17,7 @@ export default function Navigation() {
       >
         <a href="#" className="flex-shrink-0 flex items-center">
           <img
-            src={logo}
+            src="/LOGO.png"
             alt="Logo Camila Piergentili"
             className="h-9 w-auto object-contain"
           />
@@ -52,14 +51,6 @@ export default function Navigation() {
               <Linkedin size={20} />
             </a>
           </div>
-
-          <a
-            href="#contact"
-            className="hidden sm:inline-flex items-center px-5 py-2 rounded-full text-sm font-bold transition-transform duration-300 hover:scale-105"
-            style={{ backgroundColor: 'var(--yellow)', color: 'var(--navy-text)' }}
-          >
-            Contacto
-          </a>
         </div>
       </nav>
     </div>

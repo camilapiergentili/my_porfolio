@@ -6,7 +6,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-14 px-6">
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-[1100px] mx-auto text-center">
         <h2 className="section-title" style={{ marginBottom: '18px' }}>Conectemos</h2>
 
         <p className="text-lg mb-10" style={{ color: "var(--text-muted)" }}>

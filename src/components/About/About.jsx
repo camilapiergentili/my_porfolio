@@ -6,7 +6,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-14 px-6">
-      <div className="max-w-5xl mx-auto text-center">
+      <div className="max-w-[1100px] mx-auto text-center">
         <h2 className="section-title">Sobre mí</h2>
 
         <div
@@ -17,7 +17,7 @@ export default function About() {
 
             {/* Izquierda — texto */}
             <div className="flex-1">
-              <p className="text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              <p className="text-lg leading-relaxed text-justify" style={{ color: "var(--text-muted)" }}>
                 Perfil analítico y ordenado, con una forma de trabajo metódica y responsable.
                 Desarrollo soluciones backend priorizando la claridad del código, la lógica
                 y la mantenibilidad de los sistemas. Me caracterizo por la constancia, el
@@ -27,16 +27,13 @@ export default function About() {
               </p>
             </div>
 
-            {/* Derecha — foto */}
-            <div className="flex-shrink-0">
+            {/* Derecha — foto con marco cuadrado y bloque amarillo superpuesto */}
+            <div className="about-photo-frame flex-shrink-0">
+              <span className="about-photo-accent" aria-hidden="true" />
               <img
                 src={foto}
                 alt="Camila Piergentili"
-                className="w-48 h-48 rounded-full object-cover object-top"
-                style={{
-                  border: "3px solid var(--yellow)",
-                  boxShadow: "0 20px 45px rgba(0, 0, 0, 0.35)"
-                }}
+                className="about-photo-img"
               />
             </div>
 
