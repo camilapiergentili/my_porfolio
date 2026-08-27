@@ -26,7 +26,42 @@ const en = {
   skills: {
     title: 'Tech Stack',
     aiLabel: 'AI in my workflow',
-    aiValue: 'Claude Code — AI-assisted solution exploration, architecture review, testing and debugging.'
+    aiCaption: 'AI applied to software development: code analysis, architecture, testing, documentation and task automation — not model training.',
+    categories: {
+      backend: {
+        label: 'Backend',
+        items: ['Java', 'Spring Boot', 'Spring Security', 'REST APIs', 'JPA / Hibernate']
+      },
+      architecture: {
+        label: 'Architecture',
+        caption: "Approaches I apply depending on the project's context, not all at once.",
+        items: ['Layered Architecture', 'MVC', 'Hexagonal Architecture', 'SOLID', 'Design Patterns', 'Clean Code']
+      },
+      database: {
+        label: 'Databases',
+        items: ['MySQL', 'SQL', 'Flyway', 'Transactions']
+      },
+      testing: {
+        label: 'Testing',
+        items: ['JUnit', 'Mockito', 'MockMvc', 'Testcontainers']
+      },
+      frontend: {
+        label: 'Frontend',
+        items: ['JavaScript', 'React', 'HTML', 'CSS', 'Vite']
+      },
+      devops: {
+        label: 'DevOps',
+        items: ['Docker', 'Docker Compose', 'Git']
+      },
+      ai: {
+        label: 'AI & Automation',
+        items: ['Python', 'AI Agents', 'LLMs', 'Prompt Engineering', 'API Integration', 'Workflow Automation', 'Claude Code', 'Claude Cowork', 'ChatGPT', 'Skills']
+      },
+      softSkills: {
+        label: 'Soft Skills',
+        items: ['Problem solving', 'Analytical thinking', 'Continuous learning', 'Adaptability', 'Communication']
+      }
+    }
   },
 
   projects: {

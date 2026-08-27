@@ -198,6 +198,37 @@ html {
   color: var(--white);
 }
 
+.skill-category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-category-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.skill-category-caption {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+/* IA & Automatización: mismo acento a la izquierda que .ai-block, pero
+   como tarjeta completa (header + caption + chips) en vez de una línea
+   compacta — para que la categoría de IA se destaque del resto. */
+.ai-category-card {
+  margin-top: 20px;
+  padding: 22px 26px;
+  border-left: 3px solid var(--yellow);
+  background: rgba(253, 253, 150, 0.06);
+  border-radius: 4px 18px 18px 4px;
+}
+
 .concept-chip {
   display: inline-block;
   padding: 5px 13px;

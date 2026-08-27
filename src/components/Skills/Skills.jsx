@@ -1,10 +1,15 @@
-import skills from '../../data/skills'
+import skillCategories from '../../data/skills'
 import useReveal from '../../hooks/useReveal'
 import { useTranslation } from '../../i18n/useTranslation'
 
 export default function Skills() {
   const [ref, isVisible] = useReveal()
   const { t } = useTranslation()
+
+  const aiCategory = skillCategories.find((category) => category.id === 'ai')
+  const otherCategories = skillCategories.filter((category) => category.id !== 'ai')
+  const AiIcon = aiCategory.icon
+  const aiContent = t.skills.categories.ai
 
   return (
     <section id="skills" className="py-14 px-6">
@@ -13,27 +18,47 @@ export default function Skills() {
 
         <div
           ref={ref}
-          className={`grid grid-cols-2 md:grid-cols-4 gap-6 reveal ${isVisible ? 'is-visible' : ''} text-left`}
+          className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal ${isVisible ? 'is-visible' : ''} text-left`}
         >
-          {skills.map((skill) => {
-            const Icon = skill.icon
+          {otherCategories.map((category) => {
+            const Icon = category.icon
+            const content = t.skills.categories[category.id]
             return (
-              <div
-                key={skill.name}
-                className="surface-card p-6 transition-transform duration-300 hover:-translate-y-1"
-              >
-                <Icon className="w-7 h-7 mb-3" style={{ color: "var(--yellow)" }} />
-                <h3 className="font-semibold" style={{ color: "var(--white)" }}>
-                  {skill.name}
-                </h3>
+              <div key={category.id} className="surface-card p-5">
+                <div className="skill-category-header">
+                  <Icon className="w-5 h-5" style={{ color: "var(--yellow)" }} />
+                  <h3 className="skill-category-title">{content.label}</h3>
+                </div>
+
+                {content.caption && (
+                  <p className="skill-category-caption">{content.caption}</p>
+                )}
+
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {content.items.map((item) => (
+                    <span key={item} className="concept-chip">{item}</span>
+                  ))}
+                </div>
               </div>
             )
           })}
         </div>
 
-        <div className="ai-block text-left mt-8">
-          <span className="ai-block-label">✦ {t.skills.aiLabel}</span>
-          <span className="ai-block-value">{t.skills.aiValue}</span>
+        {/* IA & Automatización: tratamiento propio (acento a la izquierda),
+            no otra tarjeta más de la grilla — ver reglas de la sección. */}
+        <div className="ai-category-card text-left">
+          <div className="skill-category-header">
+            <AiIcon className="w-5 h-5" style={{ color: "var(--yellow)" }} />
+            <h3 className="skill-category-title">✦ {aiContent.label}</h3>
+          </div>
+
+          <p className="skill-category-caption">{t.skills.aiCaption}</p>
+
+          <div className="flex flex-wrap gap-2 mt-3">
+            {aiContent.items.map((item) => (
+              <span key={item} className="concept-chip">{item}</span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
