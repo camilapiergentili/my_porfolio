@@ -11,8 +11,8 @@ const en = {
   },
 
   hero: {
-    eyebrowRole: 'Java · Spring Boot · REST APIs',
-    description: 'I build APIs and backend systems that prioritize clear code, solid logic and maintainable architecture.',
+    eyebrowRole: 'Java · REST APIs · AI Agents · Claude Code',
+    description: 'I build backend systems with Java and REST APIs, bringing AI and agents into my software development process.',
     downloadCta: 'Download CV',
     contactCta: 'Contact'
   },

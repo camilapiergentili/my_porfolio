@@ -11,8 +11,8 @@ const es = {
   },
 
   hero: {
-    eyebrowRole: 'Java · Spring Boot · APIs REST',
-    description: 'Construyo APIs y sistemas backend priorizando código claro, lógica sólida y arquitecturas fáciles de mantener.',
+    eyebrowRole: 'Java · APIs REST · AI Agents · Claude Code',
+    description: 'Desarrollo backend con Java y APIs REST, incorporando IA y agentes en mi proceso de desarrollo de software.',
     downloadCta: 'Descargar CV',
     contactCta: 'Contacto'
   },

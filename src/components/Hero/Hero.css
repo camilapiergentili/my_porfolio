@@ -80,6 +80,11 @@
 
 /* =========================
    ACCIONES
+   Sombra propia del Hero (más suave que el hover-glow amarillo
+   global de .btn-pill-primary): igual para los dos botones, un poco
+   más marcada al hacer hover para mantener la sensación de "lift".
+   Va scopeada acá para no tocar los botones de Contacto, que
+   comparten las mismas clases .btn-pill.
 ========================= */
 .hero-actions {
   display: flex;
@@ -87,6 +92,16 @@
   gap: 18px;
   margin-top: 8px;
   flex-wrap: wrap;
+}
+
+.hero-actions .btn-pill-primary,
+.hero-actions .btn-pill-secondary {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.hero-actions .btn-pill-primary:hover,
+.hero-actions .btn-pill-secondary:hover {
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
 }
 
 /* =========================
