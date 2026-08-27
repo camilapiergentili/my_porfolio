@@ -8,9 +8,17 @@ function ProjectCard({ project, content, t }) {
   const [ref, isVisible] = useReveal()
   const [expanded, setExpanded] = useState(false)
 
+  // La tarjeta digital es, en sí misma, una foto con mucho texto propio
+  // (nombre, teléfono, mail) — necesita un velo bastante más opaco que una
+  // foto "muda" como la de DeportLink o DonTar para no competir con el
+  // texto real de la card.
+  const dark = project.id === 'tarjeta' ? 0.97 : 0.9
+  const mid = project.id === 'tarjeta' ? 0.93 : 0.8
+  const light = project.id === 'tarjeta' ? 0.85 : 0.6
+
   const coverStyle = project.image
     ? {
-        backgroundImage: `linear-gradient(135deg, rgba(4, 18, 44, 0.92) 0%, rgba(4, 18, 44, 0.8) 45%, rgba(4, 18, 44, 0.6) 100%), url(${project.image})`,
+        backgroundImage: `linear-gradient(135deg, rgba(4, 18, 44, ${dark}) 0%, rgba(4, 18, 44, ${mid}) 45%, rgba(4, 18, 44, ${light}) 100%), url(${project.image})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }
@@ -30,15 +38,21 @@ function ProjectCard({ project, content, t }) {
           <p className="project-category">{content.category}</p>
         </div>
 
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={t.projects.githubAriaLabel(content.title)}
-          className="flex-shrink-0 text-[var(--white)] hover:text-[var(--yellow)] transition-all duration-300 hover:scale-125"
-        >
-          <ExternalLink size={22} />
-        </a>
+        <div className="flex flex-col items-end gap-3 flex-shrink-0">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t.projects.githubAriaLabel(content.title)}
+            className="text-[var(--white)] hover:text-[var(--yellow)] transition-all duration-300 hover:scale-125"
+          >
+            <ExternalLink size={22} />
+          </a>
+
+          {project.qr && (
+            <img src={project.qr} alt="" aria-hidden="true" className="qr-badge" />
+          )}
+        </div>
       </div>
 
       <p className="project-problem">{content.problem}</p>
