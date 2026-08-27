@@ -1,8 +1,8 @@
 import Navigation from './components/Navigation/Navigation.jsx'
 import Hero from './components/Hero/Hero.jsx'
 import About from './components/About/About.jsx'
-import Skills from './components/Skills/Skills.jsx'
 import Projects from './components/Projects/Projects.jsx'
+import Skills from './components/Skills/Skills.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import Footer from './components/Footer/Footer.jsx'
 
@@ -12,8 +12,8 @@ export default function App() {
       <Navigation />
       <Hero />
       <About />
-      <Skills />
       <Projects />
+      <Skills />
       <Contact />
       <Footer />
     </div>
