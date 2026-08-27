@@ -178,6 +178,142 @@ html {
   color: var(--white);
 }
 
+/* =========================
+   PROJECT CARD — nueva jerarquía:
+   problema > conceptos de ingeniería > IA × Ingeniería > tecnologías
+========================= */
+.project-category {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.project-problem {
+  margin: 14px 0 16px;
+  font-size: 16.5px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.concept-chip {
+  display: inline-block;
+  padding: 5px 13px;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* Bloque de IA: tratamiento propio, deliberadamente distinto de un
+   badge de tecnología — franja con acento a la izquierda, no una
+   píldora más en la fila de conceptos. Se usa tanto en las cards de
+   proyecto como en Skills. */
+.ai-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin: 16px 0;
+  padding: 10px 16px;
+  border-left: 2px solid var(--yellow);
+  background: rgba(253, 253, 150, 0.05);
+  border-radius: 0 10px 10px 0;
+}
+
+.ai-block-label {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--yellow);
+  white-space: nowrap;
+}
+
+.ai-block-value {
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+.built-with {
+  margin-top: 14px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.built-with-label {
+  margin-right: 6px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.case-study-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--yellow);
+  cursor: pointer;
+}
+
+.case-study-toggle:hover {
+  text-decoration: underline;
+}
+
+.case-study {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--card-border);
+}
+
+.case-study h4 {
+  margin: 0 0 8px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+
+.case-study p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.case-study ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-study li {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.case-study li::before {
+  content: '• ';
+  color: var(--yellow);
+}
+
 /* Revelado suave al hacer scroll */
 .reveal {
   opacity: 0;

@@ -1,13 +1,15 @@
 import skills from '../../data/skills'
 import useReveal from '../../hooks/useReveal'
+import { useTranslation } from '../../i18n/useTranslation'
 
 export default function Skills() {
   const [ref, isVisible] = useReveal()
+  const { t } = useTranslation()
 
   return (
     <section id="skills" className="py-14 px-6">
       <div className="max-w-[1100px] mx-auto text-center">
-        <h2 className="section-title">Tech Stack</h2>
+        <h2 className="section-title">{t.skills.title}</h2>
 
         <div
           ref={ref}
@@ -27,6 +29,11 @@ export default function Skills() {
               </div>
             )
           })}
+        </div>
+
+        <div className="ai-block text-left mt-8">
+          <span className="ai-block-label">✦ {t.skills.aiLabel}</span>
+          <span className="ai-block-value">{t.skills.aiValue}</span>
         </div>
       </div>
     </section>

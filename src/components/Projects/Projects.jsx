@@ -1,83 +1,125 @@
+import { useState } from 'react'
 import projects from '../../data/projects'
 import { ExternalLink } from 'lucide-react'
 import useReveal from '../../hooks/useReveal'
+import { useTranslation } from '../../i18n/useTranslation'
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, content, t }) {
   const [ref, isVisible] = useReveal()
+  const [expanded, setExpanded] = useState(false)
+
+  const coverStyle = project.image
+    ? {
+        backgroundImage: `linear-gradient(135deg, rgba(4, 18, 44, 0.92) 0%, rgba(4, 18, 44, 0.8) 45%, rgba(4, 18, 44, 0.6) 100%), url(${project.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }
+    : undefined
 
   return (
     <div
       ref={ref}
       className={`surface-card reveal ${isVisible ? 'is-visible' : ''} mb-10 p-8`}
+      style={coverStyle}
     >
-      <div className="flex justify-between items-start mb-4 gap-4">
-        <h3 className="text-2xl font-bold" style={{ color: "var(--yellow)" }}>
-          {project.title}
-        </h3>
+      <div className="flex justify-between items-start gap-4">
+        <div>
+          <h3 className="text-2xl font-bold" style={{ color: "var(--yellow)" }}>
+            {content.title}
+          </h3>
+          <p className="project-category">{content.category}</p>
+        </div>
 
         <a
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Repositorio de ${project.title} en GitHub`}
+          aria-label={t.projects.githubAriaLabel(content.title)}
           className="flex-shrink-0 text-[var(--white)] hover:text-[var(--yellow)] transition-all duration-300 hover:scale-125"
         >
           <ExternalLink size={22} />
         </a>
       </div>
 
-      <p className="mb-6 leading-relaxed text-justify" style={{ color: "var(--text-muted)" }}>
-        {project.description}
+      <p className="project-problem">{content.problem}</p>
+
+      <div className="flex flex-wrap gap-2">
+        {content.concepts.map((concept) => (
+          <span key={concept} className="concept-chip">{concept}</span>
+        ))}
+      </div>
+
+      {content.ai && (
+        <div className="ai-block">
+          <span className="ai-block-label">✦ {t.projects.aiLabel}</span>
+          <span className="ai-block-value">{content.ai.concepts.join(' · ')}</span>
+        </div>
+      )}
+
+      <p className="built-with">
+        <span className="built-with-label">{t.projects.builtWithLabel}</span>
+        {project.tech.join(' · ')}
       </p>
 
-      <div className="mb-6">
-        <h4 className="font-semibold mb-3" style={{ color: "var(--white)" }}>
-          Tecnologías:
-        </h4>
+      <button
+        type="button"
+        onClick={() => setExpanded((prev) => !prev)}
+        className="case-study-toggle"
+        aria-expanded={expanded}
+      >
+        {expanded ? t.projects.closeCaseStudyCta : t.projects.caseStudyCta}
+        <span>{expanded ? '↑' : '→'}</span>
+      </button>
 
-        <div className="flex flex-wrap gap-2">
-          {project.tech.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 cursor-default hover:shadow-[0_4px_14px_rgba(253,253,150,0.35)]"
-              style={{ backgroundColor: "var(--yellow)", color: "var(--navy-text)" }}
-            >
-              {tech}
-            </span>
-          ))}
+      {expanded && (
+        <div className="case-study">
+          <div>
+            <h4>{t.projects.caseStudy.problemLabel}</h4>
+            <p>{content.caseStudy.problem}</p>
+          </div>
+
+          <div>
+            <h4>{t.projects.caseStudy.engineeringLabel}</h4>
+            <ul>
+              {content.caseStudy.engineering.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          {content.ai && (
+            <div>
+              <h4>{t.projects.aiLabel}</h4>
+              <p>{content.ai.description}</p>
+            </div>
+          )}
+
+          <div>
+            <h4>{t.projects.caseStudy.builtWithLabel}</h4>
+            <p>{project.tech.join(' · ')}</p>
+          </div>
         </div>
-      </div>
-
-      <div>
-        <h4 className="font-semibold mb-3" style={{ color: "var(--white)" }}>
-          Desafíos clave:
-        </h4>
-
-        <ul className="space-y-2">
-          {project.highlights.map((highlight, i) => (
-            <li
-              key={i}
-              className="flex items-start transition-colors duration-200 text-[var(--text-muted)] hover:text-[var(--yellow)]"
-            >
-              <span style={{ color: "var(--yellow)" }} className="mr-2">•</span>
-              <span>{highlight}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      )}
     </div>
   )
 }
 
 export default function Projects() {
+  const { t } = useTranslation()
+
   return (
     <section id="projects" className="py-14 px-6">
       <div className="max-w-[1100px] mx-auto text-center">
-        <h2 className="section-title">Proyectos Personales</h2>
+        <h2 className="section-title">{t.projects.sectionTitle}</h2>
 
         <div className="text-left">
           {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              content={t.projects.items[project.id]}
+              t={t}
+            />
           ))}
         </div>
       </div>

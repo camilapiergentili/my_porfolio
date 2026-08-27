@@ -1,57 +1,26 @@
+import deportlinkCover from '../assets/deportlink-cover.jpg'
+import dontarCover from '../assets/dontar-cover.jpg'
+
+// Datos no traducibles (tech stack, links, imagen). El texto (título,
+// problema, conceptos, IA, case study) vive en data/content/es.js y en.js,
+// indexado por `id`.
 const projects = [
   {
-    title: 'Gestion de Turnos',
-    description: 'Aplicación creada para administrar pacientes, médicos, turnos, consultas y tratamientos dentro de una clínica médica.',
-    tech: ['Java', 'Spring Boot', 'JPA/Hibernate', 'SQL', 'REST API', 'Spring Security (JWT)', 'MySQL', 'Maven', 'Docker'],
-    highlights: [
-      'Modelado completo del dominio clínico, evitando solapamientos y ambigüedades',
-      'Gestión de turnos con validación automática de disponibilidad',
-      'Autenticación segura con JWT',
-      'Autorización por roles (admin, médico, paciente)',
-      'Arquitectura MVC, escalable y mantenible',
-      'Deploy completo de backend (y frontend integrado)'
-    ],
-    github: 'https://github.com/camilapiergentili/TurnosMedicos'
+    id: 'deportlink',
+    tech: ['Java', 'Spring Boot', 'Spring Security', 'JWT', 'JPA/Hibernate', 'MySQL', 'Flyway', 'MapStruct'],
+    github: 'https://github.com/camilapiergentili/DeportLink/tree/development',
+    image: deportlinkCover
   },
-
   {
-    title: 'DeportLink',
-    description: 'Sistema de gestión de reservas de canchas deportivas que centraliza y automatiza la validación de turnos.',
-    tech: ['Java', 'Spring Boot', 'JPA/Hibernate', 'SQL', 'REST API', 'Spring Security','Postman'],
-    highlights: [
-      'Modelado completo del dominio evitando solapamientos',
-      'Validación automática de disponibilidad',
-      'Arquitectura escalable y mantenible',
-      'Deploy completo de backend y frontend'
-    ],
-    github: 'https://github.com/camilapiergentili/DeportLink/tree/development'
+    id: 'turnos',
+    tech: ['Java', 'Spring Boot', 'JPA/Hibernate', 'SQL', 'Spring Security (JWT)', 'MySQL', 'Docker'],
+    github: 'https://github.com/camilapiergentili/TurnosMedicos',
+    image: dontarCover
   },
-
   {
-    title: 'Sistema Bancario',
-    description: 'Backend para gestión de sistemas bancarios con validaciones de crédito y simulación de cuotas.',
-    tech: ['Java', 'Spring Boot', 'REST API','JUnit', 'Mokito'],
-    highlights: [
-      'Validaciones de cliente y cuenta',
-      'Cálculo de cuotas con interés fijo',
-      'Manejo de excepciones personalizadas',
-      'Persistencia en memoria',
-      'Simulación de scoring crediticio'
-    ],
-    github: 'https://github.com/camilapiergentili/SistemaBancario/tree/master'
-  },
-
-  {
-    title: 'HomeExpert',
-    description: 'API para conectar usuarios con profesionales de servicios para el hogar.',
-    tech: ['Node.js', 'Express', 'JavaScript'],
-    highlights: [
-      'Autenticación y autorización',
-      'Diseño REST',
-      'Endpoints protegidos por roles',
-      'Deploy en Render'
-    ],
-    github: 'https://github.com/NicoValenciano/HomeExpert'
+    id: 'tarjeta',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/camilapiergentili/tarjeta-gonzalo-louvecez'
   }
 ]
 
