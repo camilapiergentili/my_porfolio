@@ -2,144 +2,127 @@
    HERO SECTION
 ========================= */
 .hero-section {
-  padding: 120px 0 0 0;
+  padding: 130px 24px 60px;
 }
 
 .hero-wrapper {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  box-shadow: 8px 8px 12px 0px #00597a2b;
-  border-radius: 32px;
 }
 
 /* =========================
-   HERO CARD
+   VENTANA — card con la foto de portada de fondo
 ========================= */
-.hero-card {
-  position: relative;
-  min-height: 350px;
-  border-radius: 32px;
+.hero-window {
+  border-radius: 22px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.45);
   overflow: hidden;
+}
 
-  display: flex;          
-  align-items: stretch;
-
-  background-image:
-    linear-gradient(
-      to bottom left,
-      rgba(242, 227, 129, 0.4),
-      rgba(180, 180, 180, 0.4)
-    ),
-    url("../../assets/portada.jpg");
-
+/* =========================
+   CUERPO — foto de portada como fondo
+   Velo plano azul, sin degradé ni amarillo, para que la foto se
+   siga viendo pero el texto quede legible de forma pareja.
+========================= */
+.hero-body {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  padding: 56px;
+  background-color: rgba(4, 18, 44, 0.78);
+  background-image: url('../../assets/portada.jpg');
+  background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
 }
 
-/* =========================
-   IMAGE
-========================= */
-.hero-image {
-  flex: 1;
-  border-radius: 24px;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.hero-text h1,
+.hero-text p {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
 }
 
-
-/* =========================
-   CONTENT
-========================= */
-.hero-content {
-  z-index: 2;
-  flex: 1;                 
-  padding: 42px;
-
+.hero-text {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; 
-  align-items: center;
-  text-align: center;
-
-  color: whitesmoke;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 560px;
 }
 
-.hero-content p {
-  font-size: 22px;
-  opacity: 0.9;
-  margin-bottom: 32px;
-  color: var(--azul-marino);
+.hero-title {
+  margin: 0;
+  font-size: 60px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--white);
+}
+
+.hero-role {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.hero-description {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
   font-weight: 500;
 }
 
-.hero-content h1 {
-    font-size: 58px;
-    font-family: 'Cormorant Infant', serif;
-    font-style: italic;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-
-
 /* =========================
-   ACTIONS
+   ACCIONES
+   Sombra propia del Hero (más suave que el hover-glow amarillo
+   global de .btn-pill-primary): igual para los dos botones, un poco
+   más marcada al hacer hover para mantener la sensación de "lift".
+   Va scopeada acá para no tocar los botones de Contacto, que
+   comparten las mismas clases .btn-pill.
 ========================= */
 .hero-actions {
   display: flex;
-  gap: 16px;
-  margin-top: 14px;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+  flex-wrap: wrap;
 }
 
-.btn {
-  backdrop-filter: blur(6px);
-  border: 2px solid rgba(180, 180, 180, 0.4);
-  color: var(--text-main);
+.hero-actions .btn-pill-primary,
+.hero-actions .btn-pill-secondary {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
-
-.btn-dark {
-  background: linear-gradient(
-    135deg,
-    rgba(247, 229, 116, 0.35),
-    rgba(197, 193, 193, 0.1)
-  );
-
-  backdrop-filter: blur(50px);
+.hero-actions .btn-pill-primary:hover,
+.hero-actions .btn-pill-secondary:hover {
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
 }
-
-.btn-yellow {
-    background: linear-gradient(
-        135deg,
-        rgba(247, 229, 116, 0.35),
-        rgba(197, 193, 193, 0.1)
-    );
-  backdrop-filter: blur(50px);
-}
-
-.btn:hover {
-  box-shadow: 0 8px 16px #00597a2b;
-  transform: translateY(-1.5px);
-  background: rgba(253, 253, 150, 0.54) ;
-}
-
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 900px) {
-  .hero-card {
-    flex-direction: column;
+  .hero-body {
+    padding: 44px 28px;
+    text-align: center;
   }
 
-  .hero-image {
-    min-height: 240px;
+  .hero-text {
+    align-items: center;
+    max-width: 100%;
   }
-  
-  .hero-content h1 {
-    font-size: 48px;
-    margin-bottom: 16px;
+
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .hero-actions {
+    justify-content: center;
   }
 }

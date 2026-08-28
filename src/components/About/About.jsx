@@ -1,64 +1,43 @@
 import foto from "../../assets/camila-piergentili.jpeg"
+import useReveal from "../../hooks/useReveal"
+import { useTranslation } from "../../i18n/useTranslation"
 
 export default function About() {
+  const [ref, isVisible] = useReveal()
+  const { t } = useTranslation()
+
   return (
-    <section className="py-20 px-6">
-      
-      <h2
-      className="text-4xl font-bold bg-clip-text text-transparent mb-8 text-center"
-      style={{ 
-        fontFamily: "Georgia, serif",
-        backgroundImage: "linear-gradient(to right, var(--azul-marino), var(--azul-marino))"
-      }}
-      >
-        Sobre mí
-        
-        </h2>
+    <section id="about" className="py-14 px-6">
+      <div className="max-w-[1100px] mx-auto text-center">
+        <h2 className="section-title">{t.about.title}</h2>
 
-      <div
-        className="
-          max-w-6xl mx-auto
-          bg-stone-50/120
-          backdrop-blur-md
-          rounded-3xl
-          p-10
-          shadow-md
-          border border-stone-300/40
-        "
-        style={{
-          boxShadow: "8px 8px 12px 0px #00597a2b"
-        }}
-      >
+        <div
+          ref={ref}
+          className={`surface-card reveal ${isVisible ? 'is-visible' : ''} p-10 md:p-12 text-left`}
+        >
+          <div className="flex flex-col md:flex-row items-center gap-10">
 
-        {/* Layout dos columnas */}
-        <div className="flex flex-col md:flex-row items-center gap-10">
-          
-          {/* Izquierda — texto */}
-          <div className="flex-1">
-            <p className="text-lg leading-relaxed"
-            style={{
-              color: "var(--text-main)"
-            }}
-            >
-              Perfil analítico y ordenado, con una forma de trabajo metódica y responsable.
-              Desarrollo soluciones backend priorizando la claridad del código, la lógica
-              y la mantenibilidad de los sistemas. Me caracterizo por la constancia, el
-              compromiso y la atención al detalle. Aprendo rápido, me adapto con facilidad
-              y busco un entorno donde aportar confiabilidad técnica y seguir creciendo
-              como desarrolladora.
-            </p>
+            {/* Izquierda — texto */}
+            <div className="flex-1">
+              <p className="text-lg leading-relaxed text-justify" style={{ color: "var(--text-muted)" }}>
+                {t.about.bio}
+              </p>
+              <p className="text-lg leading-relaxed text-justify mt-4" style={{ color: "var(--text-muted)" }}>
+                {t.about.bioAi}
+              </p>
+            </div>
+
+            {/* Derecha — foto con marco cuadrado y bloque amarillo superpuesto */}
+            <div className="about-photo-frame flex-shrink-0">
+              <span className="about-photo-accent" aria-hidden="true" />
+              <img
+                src={foto}
+                alt="Camila Piergentili"
+                className="about-photo-img"
+              />
+            </div>
+
           </div>
-
-          {/* Derecha — foto */}
-          <div className="flex-shrink-0">
-            <img
-            src={foto}
-            alt="Camila Piergentili"
-            className="w-48 h-50 rounded-full object-cover shadow-lg border-1"
-            style={{ borderColor: "var(--azul-marino)" }}
-            />
-          </div>
-
         </div>
       </div>
     </section>

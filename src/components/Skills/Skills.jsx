@@ -1,61 +1,64 @@
-import skills from '../../data/skills'
+import skillCategories from '../../data/skills'
+import useReveal from '../../hooks/useReveal'
+import { useTranslation } from '../../i18n/useTranslation'
 
 export default function Skills() {
+  const [ref, isVisible] = useReveal()
+  const { t } = useTranslation()
+
+  const aiCategory = skillCategories.find((category) => category.id === 'ai')
+  const otherCategories = skillCategories.filter((category) => category.id !== 'ai')
+  const AiIcon = aiCategory.icon
+  const aiContent = t.skills.categories.ai
+
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        
-        <h2
-        className="text-4xl font-bold bg-clip-text text-transparent mb-8 text-center"
-        
-        style={{ 
-          fontFamily: "Georgia, serif",
-          backgroundImage: "linear-gradient(to right, var(--azul-marino), var(--azul-marino))"
-        }}>
-          Tech Stack
-        </h2>
+    <section id="skills" className="py-14 px-6">
+      <div className="max-w-[1100px] mx-auto text-center">
+        <h2 className="section-title">{t.skills.title}</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {skills.map((skill) => {
-            const Icon = skill.icon
+        <div
+          ref={ref}
+          className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal ${isVisible ? 'is-visible' : ''} text-left`}
+        >
+          {otherCategories.map((category) => {
+            const Icon = category.icon
+            const content = t.skills.categories[category.id]
             return (
-            <div
-            key={skill.name}
-            className="group relative 
-            bg-transparent 
-            backdrop-blur-sm 
-            p-6 
-            rounded-xl 
-            shadow-md 
-            hover:shadow-2xl 
-            transition-all 
-            duration-500 
-            hover:-translate-y-2 
-            border 
-            overflow-hidden"
-            style={{ 
-              borderColor: 'var(--yellow)',
-              boxShadow: '3px 1px 8px 0px rgba(242, 227, 129, 0.39)'
-            }}
-            >
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
-                  style={{
-                    backgroundImage: `url(${skill.bgImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                />
+              <div key={category.id} className="surface-card p-5">
+                <div className="skill-category-header">
+                  <Icon className="w-5 h-5" style={{ color: "var(--yellow)" }} />
+                  <h3 className="skill-category-title">{content.label}</h3>
+                </div>
 
-                <div className="relative z-10">
-                  <Icon className="w-8 h-8 mb-3" style={{ color: "var(--azul-marino)" }} />
-                  <h3 className="font-semibold text-stone-800">
-                    {skill.name}
-                  </h3>
+                {content.caption && (
+                  <p className="skill-category-caption">{content.caption}</p>
+                )}
+
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {content.items.map((item) => (
+                    <span key={item} className="concept-chip">{item}</span>
+                  ))}
                 </div>
               </div>
             )
           })}
+        </div>
+
+        {/* IA & Automatización: tratamiento propio (acento a la izquierda),
+            no otra tarjeta más de la grilla — ver reglas de la sección. */}
+        <div className="ai-category-card text-left">
+          <div className="skill-category-header">
+            <AiIcon className="w-5 h-5" style={{ color: "var(--yellow)" }} />
+            <h3 className="skill-category-title">✦ {aiContent.label}</h3>
+          </div>
+
+          <p className="skill-category-caption">{t.skills.aiCaption}</p>
+
+          <div className="flex flex-wrap gap-2 mt-3">
+            {aiContent.items.map((item) => (
+              <span key={item} className="concept-chip">{item}</span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
